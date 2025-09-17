@@ -16,7 +16,7 @@ example_file.R: Helper script that shows how to pass parameter values for variou
 ## Required packages
 
 ```r
-install.packages(c("dplyr", "MCC", "optparse", "parallel"))
+install.packages(c("dplyr", "frailtypack", "MCC", "optparse", "parallel", "survival", "reReg", "WR"))
 ```
 
 ## Simple Example
@@ -29,6 +29,11 @@ library(optparse)
 library(MCC)
 library(parallel)
 library(dplyr)
+library(survival)
+library(reReg)
+library(MASS)
+library(frailtypack)
+library(WR)
 
 # Functions for comparison methods.
 source("comparison_methods.R")
