@@ -68,7 +68,7 @@ data <- SimData(n = params$n,
  results
 ```
 
-The output of the code are the results for the AUMCF analysis (**AUMCF_diff**), the Cox proportional hazards model (**coxph**), the LWYY method (**LWYY**), negative binomial regression (**nb**), a frailty model (**frailty**), the last-event-assisted win ratio (**wr_LWR**), and the standard win ratio (**wr_STD**).
+The code ouputs the AUMCF analysis (**AUMCF_diff**), the Cox proportional hazards model (**coxph**), the LWYY method (**LWYY**), negative binomial regression (**nb**), a frailty model (**frailty**), the last-event-assisted win ratio (**wr_LWR**), and the standard win ratio (**wr_STD**).
 
 ```r
 >  results
