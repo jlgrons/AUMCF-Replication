@@ -11,7 +11,7 @@
     ## Case 3b: Under the Alternative.
 
 # Working directory.
-# setwd('~/Documents/GitHub/AUMCF-simulation')
+# setwd('~/Documents/GitHub/AUMCF-Replication')
 rm(list = ls())
 
 # Packages.

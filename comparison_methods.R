@@ -305,7 +305,7 @@ RunAllMethods <- function(data, tau, adjusted = FALSE){
     
     # Comparison Methods. 
     coxp <- coxPHmodel(data)
-    coxp_nc <- coxPHmodel(data, composite = FALSE)
+    #coxp_nc <- coxPHmodel(data, composite = FALSE)
     lwyy <- LWYYmodel(data)
     nb <- NegBmodel(data)
     frailty <- FRYmodel(data)
@@ -322,17 +322,17 @@ RunAllMethods <- function(data, tau, adjusted = FALSE){
     )
     
     # AUMCF (Ratio).
-    aumcf_ratio <- data.frame(
-      value = boot@CIs$observed[2],
-      se = boot@CIs$se[2],
-      lower = boot@CIs$lower[2],
-      upper = boot@CIs$upper[2],
-      p_value = boot@Pvals$p[2],
-      type = "AUMCF_ratio"
-    )
+    # aumcf_ratio <- data.frame(
+    #   value = boot@CIs$observed[2],
+    #   se = boot@CIs$se[2],
+    #   lower = boot@CIs$lower[2],
+    #   upper = boot@CIs$upper[2],
+    #   p_value = boot@Pvals$p[2],
+    #   type = "AUMCF_ratio"
+    # )
     
     # Return results.
-    results <- rbind(aumcf_diff, aumcf_ratio, coxp, coxp_nc, 
+    results <- rbind(aumcf_diff, coxp, 
                      lwyy, nb, frailty, wr)
   }
   

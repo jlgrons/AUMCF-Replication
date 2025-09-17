@@ -1,6 +1,6 @@
 # AUMCF-Simulation
 
-Code to replicate the simulation studies in [Nonparametric estimation of the total treatment effect with multiple outcomes in the presence of terminal events](https://arxiv.org/abs/2412.09304). 
+This repository contains the code and results for the paper *"Nonparametric estimation of the total treatment effect with multiple outcomes in the presence of terminal events"* by Jessica Gronsbell, Zachary R. McCaw, Isabelle-Emmanuella Nogues, Xiangshan Kong, Tianxi Cai, Lu Tian, LJ Wei. You can find the preprint [here](https://arxiv.org/abs/2411.19908](https://arxiv.org/abs/2412.09304).
 
 ## Repository Structure
 
@@ -11,3 +11,73 @@ data_generation.R: Functions for data generation.
 run_simulation.R: Main script to run a simulation.
 
 example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
+
+
+## Requirements
+
+```r
+install.packages(c("dplyr", "MCC", "optparse", "parallel"))
+```
+
+## Example
+
+Below is a simple example of how to generate the code and obtain results. 
+
+```r
+# Packages.
+library(optparse)
+library(MCC)
+library(parallel)
+library(dplyr)
+
+# Functions for comparison methods.
+source("comparison_methods.R")
+
+# Functions for data generation.
+source("data_generation.R")
+
+# Simulation parameters.
+params <- list(
+  n = 200, # Sample size.
+  censor = 0.2, # Censoring rate.
+  time = 4, # Observation window.
+  frailtyVar = 0, # Frailty variance.
+  # Baseline rate of terminal events.
+  BaseDeath0 = 0.2,
+  BaseDeath1 = 0.2,
+  # Baseline rate of recurrent events.
+  BaseEvent0 = 1.0,
+  BaseEvent1 = 1.0,
+  # Indicator for whether to do an adjusted analysis.
+  adjusted = 0
+)
+
+
+# Generate data.
+set.seed(92047)
+data <- SimData(n = params$n,
+                censoring_rate = params$censor, 
+                base_death_rate = params$BaseDeath0,
+                base_event_rate_0 = params$BaseEvent0, 
+                base_event_rate_1 = params$BaseEvent1,
+                frailty_variance = params$frailtyVar,
+                tau = params$time,
+                adjust = params$adjusted)
+
+# Run AUMCF analysis + comparison methods.
+ results <- RunAllMethods(data, params$time, params$adjusted)
+ results
+```
+
+The output of the code should be the following. 
+```r
+>  results
+      value         se      lower    upper   p_value       type
+1 0.3569739 0.50752825 -0.6377632 1.351711 0.4818328 AUMCF_diff
+2 1.0204374 0.10791614  0.8259010 1.260796 0.8512899      coxph
+3 1.0464455 0.06828976  0.9153500 1.196316 0.5061771       lwyy
+4 1.0473404 0.07076926  0.9116913 1.203172 0.5133772         nb
+5 1.0023491 0.07075777  0.8725469 1.151461 0.9735471    frailty
+6 1.0350103 0.11884749  0.8264216 1.296247 0.7644218     wr_LWR
+7 1.1194387 0.13183433  0.8886975 1.410089 0.3380397     wr_STD
+```
