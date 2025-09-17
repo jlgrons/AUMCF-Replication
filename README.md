@@ -1,6 +1,6 @@
 # AUMCF-Simulation
 
-This repository contains the code and results for the paper *"Nonparametric estimation of the total treatment effect with multiple outcomes in the presence of terminal events"* by Jessica Gronsbell, Zachary R. McCaw, Isabelle-Emmanuella Nogues, Xiangshan Kong, Tianxi Cai, Lu Tian, LJ Wei. You can find the preprint [here](https://arxiv.org/abs/2411.19908](https://arxiv.org/abs/2412.09304).
+This repository contains the code and results for the paper *"Nonparametric estimation of the total treatment effect with multiple outcomes in the presence of terminal events"* by Jessica Gronsbell, Zachary R. McCaw, Isabelle-Emmanuella Nogues, Xiangshan Kong, Tianxi Cai, Lu Tian, and LJ Wei. You can find the preprint [here](https://arxiv.org/abs/2412.09304).
 
 ## Repository Structure
 
@@ -13,15 +13,15 @@ run_simulation.R: Main script to run a simulation.
 example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
 
 
-## Requirements
+## Required packages
 
 ```r
 install.packages(c("dplyr", "MCC", "optparse", "parallel"))
 ```
 
-## Example
+## Simple Example
 
-Below is a simple example of how to generate the code and obtain results. 
+The code below shows to generate data and obtain results. 
 
 ```r
 # Packages.
@@ -70,6 +70,7 @@ data <- SimData(n = params$n,
 ```
 
 The output of the code should be the following. 
+
 ```r
 >  results
       value         se      lower    upper   p_value       type
