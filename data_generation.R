@@ -420,27 +420,5 @@ SimData <- function(n, censoring_rate, base_death_rate,
 
 
 
-# n = n
-# censoring_rate = censoring_rate
-# base_death_rate = params$BaseDeath0
-# base_event_rate = params$BaseEvent0
-# beta_death = beta_d
-# beta_event = beta_e
-# covariates = covariate0
-# frailty_variance = 6
-# tau = tau
-
- 
-# n =200
-# censoring_rate = 0.2
-# base_death_rate = params$BaseDeath0
-# base_event_rate = params$BaseEvent0
-# base_event_rate_0 = params$BaseEvent0
-# base_event_rate_1 = params$BaseEvent1
-# frailty_variance = params$frailtyVar
-# tau = 4
-# beta_death = beta_death_1
-# beta_event = beta_event_1
-
 
 
