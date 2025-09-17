@@ -1,5 +1,8 @@
 # AUMCF-Simulation
 
+Code to replicate the simulation studies in [Nonparametric estimation of the total treatment effect with multiple outcomes in the presence of terminal events](https://arxiv.org/abs/2412.09304
+. 
+
 ## Repository Structure
 
 comparison_methods.R: Functions for comparison methods.
