@@ -4,13 +4,13 @@ This repository contains the code and results for the paper *"Nonparametric esti
 
 ## Repository Structure
 
-comparison_methods.R: Functions for comparison methods.
+- comparison_methods.R: Functions for comparison methods.
 
-data_generation.R: Functions for data generation.
+- data_generation.R: Functions for data generation.
 
-run_simulation.R: Main script to run a simulation.
+- run_simulation.R: Main script to run a simulation.
 
-example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
+- example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
 
 
 ## Required packages
