@@ -42,10 +42,9 @@ params <- list(
   censor = 0.2, # Censoring rate.
   time = 4, # Observation window.
   frailtyVar = 0, # Frailty variance.
-  # Baseline rate of terminal events.
+  # Baseline rate of terminal events in both treatment arms.
   BaseDeath0 = 0.2,
-  BaseDeath1 = 0.2,
-  # Baseline rate of recurrent events.
+  # Baseline rate of recurrent events in each treatment arm.
   BaseEvent0 = 1.0,
   BaseEvent1 = 1.0,
   # Indicator for whether to do an adjusted analysis.
