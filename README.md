@@ -6,7 +6,7 @@ Code to replicate the simulation studies in [Nonparametric estimation of the tot
 
 comparison_methods.R: Functions for comparison methods.
 
-data_generation.R: Function to generate data with time varying treatment effect.
+data_generation.R: Functions for data generation.
 
 run_simulation.R: Main script to run a simulation.
 

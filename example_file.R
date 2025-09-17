@@ -11,7 +11,7 @@
     ## Case 3b: Under the Alternative.
 
 # Working directory.
-setwd('~/Documents/GitHub/AUMCF-simulation')
+# setwd('~/Documents/GitHub/AUMCF-simulation')
 rm(list = ls())
 
 # Packages.
@@ -34,19 +34,27 @@ my_reps <- 100
 # ------------------------- #
 params <- list(
   n = 200,  # Vary to be 100, 200, or 400.
+  # Censoring rate.
   censor = 0.2,
+  # Observation window.
   time = 4, # Vary to be 1 or 4.
+  # Frailty variance.
   frailtyVar = 0, # Vary to be 0 or 3.
+  # Baseline rate of the terminal event.
   BaseDeath0 = 0.2,
   BaseDeath1 = 0.2,
+  # Baseline rate of the recurrent events.
   BaseEvent0 = 1.0,
   BaseEvent1 = 1.0,
+  # Whether to do covariate-adjusted estimation.
   adjusted = 0,
-  symmetric = FALSE,
+  # Parameters for time-varying treatment effect settings. 
+  symmetric = FALSE, 
   TV_effect = 0,
+  # Experiment index.
   experiment = 1,
   reps = my_reps,
-  out = "Test/"
+  out = "Test/" # Change to where you'd like files to be saved.
 )
 
 source('run_simulation.R')
@@ -64,7 +72,7 @@ params <- list(
   BaseDeath1 = 0.2,
   BaseEvent0 = 1.0,
   BaseEvent1 = 1.0,
-  adjusted = 1,
+  adjusted = 1, # Set to 1 for informative, 2 for uninformative.
   symmetric = FALSE,
   TV_effect = 0,
   experiment = 1,
@@ -130,8 +138,8 @@ params <- list(
   time = 4, # Vary to be 1, 4, or 6.
   BaseDeath0 = 0.2,
   BaseDeath1 = 0.2,
-  TV_effect = log(0.5),
-  symmetric = TRUE, 
+  TV_effect = log(0.5), # Specify time-varying effect.
+  symmetric = TRUE, # Specify whether the effect is symmetric across both arms.
   adjusted = 0,
   experiment = 3,
   reps = my_reps,
