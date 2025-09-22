@@ -105,7 +105,7 @@ if(params$experiment == 1 | (params$experiment == 3 & params$symmetric == TRUE) 
   
   all_truth_values <- c()
   
-  for(i in 1:1){ # Adjust if you need more - plot mean(truth) vs # replicates for all parameters.
+  for(i in 1:1){ 
     
     # Non-Null Case.
     big_data <- SimulateData(params, calc_truth = TRUE)
@@ -129,7 +129,6 @@ if(params$experiment == 1 | (params$experiment == 3 & params$symmetric == TRUE) 
 # Add true value to the simulation.
 sim_augmented <- sim %>%
   mutate(true_value = truth[type])
-## NOTE: I also suggest you save all the simulation data here.
 
 # Calculate summary stats.
 summary_table <- sim_augmented %>%

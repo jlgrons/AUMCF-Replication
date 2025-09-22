@@ -4,19 +4,19 @@ This repository contains the code and results for the paper *"Nonparametric esti
 
 ## Repository Structure
 
-comparison_methods.R: Functions for comparison methods.
+- comparison_methods.R: Functions for comparison methods.
 
-data_generation.R: Functions for data generation.
+- data_generation.R: Functions for data generation.
 
-run_simulation.R: Main script to run a simulation.
+- run_simulation.R: Main script to run a simulation.
 
-example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
+- example_file.R: Helper script that shows how to pass parameter values for various simulation settings from the paper.
 
 
 ## Required packages
 
 ```r
-install.packages(c("dplyr", "MCC", "optparse", "parallel"))
+install.packages(c("dplyr", "frailtypack", "MCC", "optparse", "parallel", "survival", "reReg", "WR"))
 ```
 
 ## Simple Example
@@ -29,6 +29,11 @@ library(optparse)
 library(MCC)
 library(parallel)
 library(dplyr)
+library(survival)
+library(reReg)
+library(MASS)
+library(frailtypack)
+library(WR)
 
 # Functions for comparison methods.
 source("comparison_methods.R")
@@ -68,7 +73,7 @@ data <- SimData(n = params$n,
  results
 ```
 
-The output of the code should be the following. 
+The code ouputs the AUMCF analysis (**AUMCF_diff**), the Cox proportional hazards model (**coxph**), the LWYY method (**LWYY**), negative binomial regression (**nb**), a frailty model (**frailty**), the last-event-assisted win ratio (**wr_LWR**), and the standard win ratio (**wr_STD**).
 
 ```r
 >  results
